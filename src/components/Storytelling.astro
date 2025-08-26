@@ -1,35 +1,61 @@
 ---
+import { Handshake } from "@lucide/astro";
 import StoryCard from "./ui/StoryCard.astro";
 
+const stories = [
+    { 
+        icon: Handshake,
+        title: "Écoutez les Angano", 
+        description: "Plongez dans les contes et légendes qui ont bercé des générations." 
+    },
+    { 
+        icon: Handshake,
+        title: "Défiez aux Ankamatatra", 
+        description: "Stimulez votre esprit avec les devinettes traditionnelles pleines de sagesse." 
+    },
+    { 
+        icon: Handshake,
+        title: "Maîtrisez le Kabary", 
+        description: "Apprenez l'art du discours, un pilier de notre culture et de la vie en société." 
+    },
+    {
+        icon: Handshake,
+        title: "Explorez les Rituels Ancestraux", 
+        description: "Découvrez les pratiques qui relient notre communauté à ses racines." 
+    },
+    { 
+        icon: Handshake,
+        title: "Participez aux Cérémonies Traditionnelles", 
+        description: "Vivez les moments forts de notre culture à travers des événements authentiques." 
+    },
+    { 
+        icon: Handshake,
+        title: "Engagez-vous pour la Citoyenneté Responsable", 
+        description: "Inspirez-vous des valeurs ancestrales pour devenir un citoyen actif et conscient." 
+    }
+];
+
+const { title, subtitle } = Astro.props;
 ---
- <section class="py-20 md:py-32 overflow-hidden">
-      <div class="container mx-auto px-6">
-        <div class="grid lg:grid-cols-3 items-center gap-12 lg:gap-8">
-            <div class="lg:col-span-1 flex flex-col gap-12">
-                <StoryCard icon="" title="Écoutez les Angano">
-                    Plongez dans les contes et légendes qui ont bercé des générations.
-                </StoryCard>
-                 <StoryCard icon="" title="Défiez aux Ankamatatra">
-                    Stimulez votre esprit avec les devinettes traditionnelles pleines de sagesse.
-                </StoryCard>
-            </div>
+<section class="py-20 md:py-32 overflow-hidden" aria-labelledby="section-title">
+    <div class="container mx-auto px-6">
+        <header class="text-center mb-16 md:mb-24">
+            <h2 id="section-title" class="font-bold text-4xl md:text-5xl text-brand-dark">
+                {title}
+            </h2>
+            <p class="mt-4 text-xl md:text-2xl text-brand-text/70">
+                {subtitle}
+            </p>
+        </header>
 
-            <div class="lg:col-span-1 px-10 order-first lg:order-none">
-                
-            </div>
-
-            <div class="lg:col-span-1 flex flex-col gap-12">
-                 <StoryCard icon="" title="Maîtrisez le Kabary">
-                    Apprenez l'art du discours, un pilier de notre culture et de la vie en société.
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {stories.map((story) => (
+                <StoryCard title={story.title} description={story.description}>
+                    <Fragment slot="icon">
+                        <story.icon class="h-6 w-6" />
+                    </Fragment>
                 </StoryCard>
-                <div class="text-center">
-                    <div class="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-brand-purple-light text-brand-purple mb-4">
-                        <span class="text-2xl font-bold">...</span>
-                    </div>
-                    <h3 class="font-bold font-serif text-xl text-brand-dark">Et bien plus encore</h3>
-                    <p class="mt-1 text-brand-text/80">Redécouvrez les trésors de notre patrimoine immatériel.</p>
-                </div>
-            </div>
+            ))}
         </div>
-      </div>
-    </section>
+    </div>
+</section>
