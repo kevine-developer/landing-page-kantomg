@@ -1,0 +1,57 @@
+---
+import FeatureCard from "./ui/FeatureCard.astro";
+
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+
+const featuresData: Feature[] = [
+  {
+    icon: "",
+    title: "Contes et Légendes",
+    description: "Découvrez les histoires fascinantes qui ont façonné notre culture.",
+  },
+  {
+    icon: "",
+    title: "Jeux et Devinettes",
+    description: "Participez à des activités ludiques inspirées des traditions malgaches.",
+  },
+  {
+    icon: "",
+    title: "Art du Discours",
+    description: "Apprenez les techniques du Kabary, l'art oratoire malgache.",
+  },
+  {
+    icon: "",
+    title: "Citoyenneté Responsable",
+    description: "Engagez-vous pour un avenir durable en redécouvrant nos valeurs ancestrales.",
+  },
+];
+---
+
+<section id="fonctionnalites" class="relative py-20 md:py-28 bg-white">
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+            De la Sagesse d'Hier aux Citoyens de Demain
+          </h2>
+          <p class="mt-4 text-lg text-brand-text/80">
+            KantoMG transforme notre héritage culturel en actions concrètes pour une citoyenneté responsable et engagée.
+          </p>
+        </div>
+        <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {featuresData.map((feature, index) => (
+            <FeatureCard
+              key={index}
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
