@@ -1,0 +1,21 @@
+---
+import Button from "./Button.astro";
+
+const { icon, title, description, buttonText, href } = Astro.props;
+
+---
+  <div class="group relative bg-white/50 border border-brand-purple/20 rounded-2xl p-8 text-center flex flex-col items-center shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden ">
+    <div class="absolute -top-8 -right-8 text-brand-purple/5 opacity-50 group-hover:opacity-100 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+        <div class="w-32 h-32">{icon}</div>
+    </div>
+    <div class="relative flex flex-col items-center flex-grow h-full">
+      <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-brand-purple-light text-brand-purple mb-4 transition-all duration-300 group-hover:bg-white group-hover:scale-105 group-hover:shadow-lg">
+        {icon}
+      </div>
+      <h3 class="font-bold text-xl text-brand-dark font-serif">{title}</h3>
+      <p class="mt-2 text-brand-text/80 flex-grow">{description}</p>
+      <div class="mt-6">
+        <Button text={buttonText} href={href} variant="secondary" />
+      </div>
+    </div>
+  </div>

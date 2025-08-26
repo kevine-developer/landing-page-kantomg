@@ -1,0 +1,37 @@
+---
+import ActionCard from "./ui/ActionCard.astro";
+import Button from "./ui/Button.astro";
+
+---
+    <section id="participer" class="bg-brand-bg py-20 md:py-28">
+      <div class="container mx-auto px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+            Devenez un acteur du projet KantoMG
+          </h2>
+          <p class="mt-4 text-lg text-brand-text/80">
+            Votre voyage commence ici. Choisissez comment vous souhaitez participer et aider à raviver la flamme de notre héritage.
+          </p>
+          <div class="mt-10">
+            <Button text="Télécharger KantoMG" href="#" size="large"/>
+          </div>
+        </div>
+
+        <div class="mt-16 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ActionCard
+            icon=""
+            title="Devenir Bêta-Testeur"
+            description="Soyez parmi les premiers à découvrir les nouveautés et aidez-nous à améliorer l'application avec vos retours."
+            buttonText="Me contacter"
+            href="#"
+          />
+          <ActionCard
+            icon=""
+            title="Rejoindre la Communauté"
+            description="Partagez vos idées, discutez avec d'autres passionnés et participez à l'avenir de KantoMG."
+            buttonText="Rejoindre la discussion"
+            href="#"
+          />
+        </div>
+      </div>
+    </section>
