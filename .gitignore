@@ -4,9 +4,10 @@ dist/
 # generated types
 .astro/
 
+Studio/
+
 # dependencies
 node_modules/
-
 # logs
 npm-debug.log*
 yarn-debug.log*
@@ -16,9 +17,11 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
-
+package-lock.json
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
+.netflify
+.vscode
