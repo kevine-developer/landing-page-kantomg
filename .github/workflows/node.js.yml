@@ -12,8 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        # Utiliser la version LTS stable
-        node-version: [20]
+        node-version: [20] # LTS stable
 
     steps:
       - uses: actions/checkout@v4
@@ -24,10 +23,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
-      - name: Setup pnpm
+      - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 9 # ou la version que tu utilises localement
+          version: 9 # adapte à ta version locale
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
