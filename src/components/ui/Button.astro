@@ -1,5 +1,5 @@
 ---
-const baseClasses = "inline-block font-bold rounded-full transition-all duration-300 transform hover:scale-105";
+const baseClasses = "inline-block font-bold rounded-full transition-all duration-300 transform ";
 
 interface Props {
   text: string;
@@ -12,8 +12,8 @@ interface Props {
 const { text, href, size = "normal", variant = "primary", className = "" } = Astro.props;
 
 const sizeClasses = {
-  normal: "text-lg py-3 px-8",
-  large: "text-lg py-4 px-10"
+  normal: "text-lg py-2 px-6",
+  large: "text-lg py-3 px-8"
 };
 
 const variantClasses = {
@@ -28,4 +28,5 @@ const variantClasses = {
       class={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
       {text}
+      
     </a>

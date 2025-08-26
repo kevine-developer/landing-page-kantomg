@@ -1,11 +1,13 @@
 ---
-const { icon, title } = Astro.props;
+const{title,description}= Astro.props;
 ---
 
-<div class="text-center">
-        <div class="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-brand-purple-light text-brand-purple mb-4">
-            {icon}
-        </div>
+ <div class="text-center group border border-brand-purple/20 p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:shadow-brand-purple/20 transition-all duration-300">
+     
+         <div class="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-brand-purple-light text-brand-purple mb-4 transition-all duration-300 group-hover:bg-white group-hover:scale-105 group-hover:shadow-lg">
+                    <slot name="icon" />
+                    </div>
         <h3 class="font-bold font-serif text-xl text-brand-dark">{title}</h3>
-        <p class="mt-1 text-brand-text/80"><slot /></p>
+        <p class="mt-1 text-brand-text/80">{description}</p>
     </div>
+

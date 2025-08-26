@@ -1,19 +1,25 @@
 ---
-const { icon, title, description } = Astro.props;
+const { title, description } = Astro.props;
 ---
-    <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:shadow-brand-purple/20  transition-all duration-300 border border-brand-purple/20 relative overflow-hidden">
-       <div class="absolute -top-10 -right-10 text-brand-purple/10 group-hover:text-brand-purple/20 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
-        {icon}
-      </div>
-      <div class="relative">
-        <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-brand-purple-light text-brand-purple transition-all duration-300 group-hover:bg-white group-hover:scale-105 group-hover:shadow-lg">
-          {icon}
-        </div>
-        <h3 class="mt-6 font-bold text-xl text-brand-dark">
-          {title}
-        </h3>
-        <p class="mt-2 text-brand-text/80">
-          {description}
-        </p>
-      </div>
+
+<article
+  class="group bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:shadow-brand-purple/20 transition-all duration-300 border border-brand-purple/20 relative overflow-hidden focus-within:outline-2 focus-within:outline-brand-purple focus-within:outline-offset-2"
+  tabindex="0"
+>
+  <!-- Container flex pour icon + titre sur mobile -->
+  <div class="flex items-center  gap-3 md:block">
+    <div
+      class="flex items-center justify-center h-12 w-12 md:h-16 md:w-16 rounded-2xl bg-brand-purple-light text-brand-purple flex-shrink-0 transition-all duration-300 group-hover:bg-white group-hover:scale-105 group-hover:shadow-lg group-focus-within:bg-white group-focus-within:scale-105 group-focus-within:shadow-lg"
+      aria-hidden="true"
+    >
+      <slot name="icon" />
     </div>
+    <h3 class="font-bold text-lg md:text-2xl text-brand-dark  md:mt-6">
+      {title}
+    </h3>
+  </div>
+  
+  <p class="mt-2 text-brand-text/80 text-sm md:text-base">
+    {description}
+  </p>
+</article>
