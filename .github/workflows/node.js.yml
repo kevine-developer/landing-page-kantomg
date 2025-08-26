@@ -1,4 +1,3 @@
-
 name: Node.js CI
 
 on:
@@ -13,21 +12,25 @@ jobs:
 
     strategy:
       matrix:
-        # Limitons à une seule version stable de Node.js
-        node-version: [22-alpine]
+        # Utiliser la version LTS stable
+        node-version: [20]
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        # Désactiver le cache temporairement
-        # cache: 'npm'
-    - name: Install dependencies
-      run: pnpm install
-    - name: Generate package-lock.json
-      run: pnpm i --package-lock-only
-    - name: Build
-      run: pnpm run build --if-present
- 
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9 # ou la version que tu utilises localement
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
