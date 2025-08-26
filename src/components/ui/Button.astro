@@ -1,0 +1,31 @@
+---
+const baseClasses = "inline-block font-bold rounded-full transition-all duration-300 transform hover:scale-105";
+
+interface Props {
+  text: string;
+  href: string;
+  size?: "normal" | "large";
+  variant?: "primary" | "secondary";
+  className?: string;
+}
+
+const { text, href, size = "normal", variant = "primary", className = "" } = Astro.props;
+
+const sizeClasses = {
+  normal: "text-lg py-3 px-8",
+  large: "text-lg py-4 px-10"
+};
+
+const variantClasses = {
+  primary: "bg-brand-purple text-white hover:bg-brand-purple-dark shadow-lg hover:shadow-brand-purple/50",
+  secondary: "bg-transparent text-brand-purple border-2 border-brand-purple hover:bg-brand-purple-light"
+};
+
+---
+
+    <a
+      href={href}
+      class={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+    >
+      {text}
+    </a>
