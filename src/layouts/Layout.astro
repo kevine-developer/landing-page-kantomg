@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Layout/Footer.astro";
 import Header from "../components/Layout/Header.astro";
 ---
 
@@ -7,13 +8,14 @@ import Header from "../components/Layout/Header.astro";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>KantoMg | Madagascar </title>
 	</head>
 	<body class="bg-brand-bg/95 font-sans text-brand-text antialiased">
 		<Header/>
 		<slot />
+		<Footer/>
 	</body>
 </html>
 

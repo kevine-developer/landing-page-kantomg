@@ -1,8 +1,9 @@
 ---
+import { Album, Gamepad2,Palette,Handshake } from "@lucide/astro";
 import FeatureCard from "./ui/FeatureCard.astro";
 
 interface Feature {
-  icon: string;
+  icon: any;
   title: string;
   description: string;
 }
@@ -10,22 +11,22 @@ interface Feature {
 
 const featuresData: Feature[] = [
   {
-    icon: "",
+    icon:   Album ,
     title: "Contes et Légendes",
     description: "Découvrez les histoires fascinantes qui ont façonné notre culture.",
   },
   {
-    icon: "",
+    icon: Gamepad2,
     title: "Jeux et Devinettes",
     description: "Participez à des activités ludiques inspirées des traditions malgaches.",
   },
   {
-    icon: "",
+    icon: Palette,
     title: "Art du Discours",
     description: "Apprenez les techniques du Kabary, l'art oratoire malgache.",
   },
   {
-    icon: "",
+    icon: Handshake,
     title: "Citoyenneté Responsable",
     description: "Engagez-vous pour un avenir durable en redécouvrant nos valeurs ancestrales.",
   },
@@ -44,14 +45,19 @@ const featuresData: Feature[] = [
           </p>
         </div>
         <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {featuresData.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
+         {featuresData.map((feature, index) => {
+  const Icon = feature.icon;
+  return (
+    <FeatureCard
+      key={index}
+      title={feature.title}
+      description={feature.description}
+    >
+      {Icon && <Icon slot="icon" />}
+    </FeatureCard>
+  );
+})}
+
         </div>
       </div>
     </section>
