@@ -1,5 +1,9 @@
+---
+import Header from "../components/Layout/Header.astro";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -7,7 +11,8 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
+	<body class="bg-brand-bg/95 font-sans text-brand-text antialiased">
+		<Header/>
 		<slot />
 	</body>
 </html>

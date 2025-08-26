@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, sans-serif;
+  --font-serif: Lora, serif;
+
+  --color-brand-purple: #6B46C1;
+  --color-brand-purple-light: #E9D8FD;
+  --color-brand-purple-dark: #553C9A;
+
+  --color-brand-bg: #F9F7FD;
+  --color-brand-dark: #1A202C;
+  --color-brand-text: #2D3748;
+}
